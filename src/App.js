@@ -14,12 +14,15 @@ export default function App() {
     {id: 3, title: 'Livro 3', author: 'Autor 3', genre: 'Romance', date: '27/11/2021'}
   ]);
 
+  const [bookId, setBookId] = useState(4);
+
   const addBook = (newBook) => {
-    setBooks([...books, newBook]);
+    setBooks([...books, {...newBook, id: bookId}]);
+    setBookId(bookId => bookId + 1);
   };
 
   const removeBook = (index) => {
-    setBooks(books.filter((_, b) => b !== index));
+    setBooks(books.filter(book => book.id !== index));
   };
 
   return (
@@ -30,7 +33,7 @@ export default function App() {
           <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/booklist" element={<BookList books={books} removeBook={removeBook}/>} />
-          <Route path="/bookform" element={<BookForm/>} />
+          <Route path="/bookform" element={<BookForm addBook={addBook}/>} />
         </Routes>
       </div>
     </Router>

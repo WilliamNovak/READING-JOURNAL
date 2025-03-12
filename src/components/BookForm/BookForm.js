@@ -1,30 +1,36 @@
 import { useState } from "react";
 
-const BookForm = () => {
-    const [formData, setFormData] = useState({
+const BookForm = ({ addBook }) => {
+    const newBook = {
         title: '',
         author: '',
-        gender: '',
+        genre: '',
         date: ''
-    });
+    }
+    const [book, setBook] = useState(newBook);
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((data) => ({
-            ...data,
-            [name]: value
-        }))
+        setBook({
+            ...book,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addBook(book);
+        setBook(newBook);
     }
 
     return (
         <div>
             <h1>Cadastrar</h1>
-            <form>
-                <label>Título: <input type="text" name="title" value={formData.title} onChange={handleChange}/></label><br></br>
-                <label>Autor(a): <input type="text" name="author" value={formData.author} onChange={handleChange}/></label><br></br>
-                <label>Gênero: <input type="text" name="gender" value={formData.gender} onChange={handleChange}/></label><br></br>
-                <label>Data: <input type="date" name="date" value={formData.date} onChange={handleChange}/></label><br></br>
-                <button>Adicionar</button>
+            <form onSubmit={handleSubmit}>
+                <label>Título: <input type="text" name="title" value={book.title} onChange={handleChange}/></label><br></br>
+                <label>Autor(a): <input type="text" name="author" value={book.author} onChange={handleChange}/></label><br></br>
+                <label>Gênero: <input type="text" name="genre" value={book.genre} onChange={handleChange}/></label><br></br>
+                <label>Data: <input type="date" name="date" value={book.date} onChange={handleChange}/></label><br></br>
+                <button type="submit">Adicionar</button>
             </form>
         </div>
     );

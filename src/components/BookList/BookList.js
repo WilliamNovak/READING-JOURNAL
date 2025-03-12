@@ -7,7 +7,7 @@ const BookList = ({ books, removeBook }) => {
                 {books.map((book, index) => (
                     <li key={index}>
                         {book.title} - {book.author} - {book.genre} - {book.date}
-                        <button onClick={() => removeBook(index)}>Excluir</button>
+                        <button onClick={() => removeBook(book.id)}>Excluir</button>
                     </li>
                 ))}
             </ul>
