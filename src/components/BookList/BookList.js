@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BookList = ({ books, removeBook }) => {
 
     return (
@@ -6,7 +8,7 @@ const BookList = ({ books, removeBook }) => {
             <ul>
                 {books.map((book, index) => (
                     <li key={index}>
-                        {book.title} - {book.author} - {book.genre} - {book.date}
+                        <Link to="/bookform">{book.title} - {book.author} - {book.genre} - {book.date}</Link>
                         <button onClick={() => removeBook(book.id)}>Excluir</button>
                     </li>
                 ))}
@@ -14,5 +16,5 @@ const BookList = ({ books, removeBook }) => {
         </div>
     );
 }
-  
+
 export default BookList;
