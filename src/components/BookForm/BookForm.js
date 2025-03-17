@@ -38,14 +38,14 @@ const BookForm = ({ addBook, updateBook, books }) => {
     }
 
     return (
-        <div>
+        <div className="centerDiv">
             <h1>Cadastrar</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Título: <input type="text" name="title" value={book.title} onChange={handleChange}/></label><br></br>
-                <label>Autor(a): <input type="text" name="author" value={book.author} onChange={handleChange}/></label><br></br>
-                <label>Gênero: <input type="text" name="genre" value={book.genre} onChange={handleChange}/></label><br></br>
-                <label>Data: <input type="date" name="date" value={book.date} onChange={handleChange}/></label><br></br>
-                <button type="submit">{id ? 'Atualizar' : 'Adicionar'}</button>
+            <form className="bookForm" onSubmit={handleSubmit}>
+                <label>Título: <input className="inputField" type="text" name="title" value={book.title} onChange={handleChange}/></label><br></br>
+                <label>Autor(a): <input className="inputField" type="text" name="author" value={book.author} onChange={handleChange}/></label><br></br>
+                <label>Gênero: <input className="inputField" type="text" name="genre" value={book.genre} onChange={handleChange}/></label><br></br>
+                <label>Data: <input className="inputField" type="date" name="date" value={book.date} onChange={handleChange}/></label><br></br>
+                <button style={{marginTop: '10px'}} type="submit">{id ? 'Atualizar' : 'Adicionar'}</button>
             </form>
         </div>
     );

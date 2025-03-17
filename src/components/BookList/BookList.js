@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 const BookList = ({ books, removeBook }) => {
 
     return (
-        <div>
+        <div className="centerDiv">
             <h1>Lista de Livros</h1>
-            <ul>
+            <ul className="bookList">
                 {books.map((book, index) => (
-                    <li key={index}>
+                    <li className="bookItem" key={index}>
                         <Link to={`/bookform/${book.id}`}>{book.title} - {book.author} - {book.genre} - {new Date(book.date).toLocaleDateString("pt-BR")}</Link>
-                        <button onClick={() => removeBook(book.id)}>Excluir</button>
+                        <button style={{marginLeft: '10px'}} onClick={() => removeBook(book.id)}>Excluir</button>
                     </li>
                 ))}
             </ul>
