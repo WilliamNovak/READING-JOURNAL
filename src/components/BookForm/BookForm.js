@@ -1,13 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const BookForm = ({ addBook }) => {
+const BookForm = ({ addBook, updateBook, books }) => {
+    const { id } = useParams();
+    
     const newBook = {
         title: '',
         author: '',
         genre: '',
         date: ''
     }
-    const [book, setBook] = useState(newBook);
+
+    const existingBook = books.find(book => book.id === Number(id));
+    const [book, setBook] = useState(existingBook || newBook);
+
+    useEffect(() => {
+        if (existingBook) {
+            setBook(existingBook);
+        }
+    }, [existingBook]);
 
     const handleChange = (e) => {
         setBook({
@@ -18,8 +29,12 @@ const BookForm = ({ addBook }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addBook(book);
-        setBook(newBook);
+        if (id) {
+            updateBook(book);
+        } else {
+            addBook(book);
+            setBook(newBook);
+        }
     }
 
     return (
@@ -30,7 +45,7 @@ const BookForm = ({ addBook }) => {
                 <label>Autor(a): <input type="text" name="author" value={book.author} onChange={handleChange}/></label><br></br>
                 <label>Gênero: <input type="text" name="genre" value={book.genre} onChange={handleChange}/></label><br></br>
                 <label>Data: <input type="date" name="date" value={book.date} onChange={handleChange}/></label><br></br>
-                <button type="submit">Adicionar</button>
+                <button type="submit">{id ? 'Atualizar' : 'Adicionar'}</button>
             </form>
         </div>
     );
