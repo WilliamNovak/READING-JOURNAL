@@ -39,6 +39,22 @@ const BookForm = ({ addBook, updateBook, books }) => {
     const handleSubmit = (e) => {
         e.preventDefault(); // previne o comportamento padrao
 
+        // Verifica se todos campos foram informados
+        if (!book.title || !book.author || !book.genre || !book.date) {
+            alert("Todos os campos devem ser informados!");
+            return;
+        }
+
+        // Verifica se a data é valida
+        const selectedDate = new Date(book.date);
+        const currentDate = new Date();
+        currentDate.setHours(0, 0, 0, 0);
+
+        if (selectedDate > currentDate) {
+            alert("A data do livro não pode ser maior que a atual!");
+            return;
+        }
+
         if (id) {
             // Atualiza o livro quando está editando
             updateBook(book);
