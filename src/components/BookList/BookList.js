@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const BookList = ({ books, removeBook }) => {
 
+    // Componente que recebe o array de livro e exibe em listagem na pagina
     return (
         <div className="centerDiv">
             <h1>Lista de Livros</h1>

@@ -1,5 +1,6 @@
 import React from "react";
 
+// Pagina Inicial do Sistema
 const Home = () => {
     return (
         <div>

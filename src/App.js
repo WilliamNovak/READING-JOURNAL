@@ -9,23 +9,31 @@ import { useState } from "react";
 import "./App.css";
 
 export default function App() {
+  // Armazena o estado da lista de livros, inializando com os livros importados
   const [books, setBooks] = useState(myBooks);
-
+  // Armazena o estado que gerencia o id dos proximos livros
   const [bookId, setBookId] = useState(4);
 
+  // Funcao para adicionar um novo livro a lista
   const addBook = (newBook) => {
-    setBooks([...books, {...newBook, id: bookId}]);
-    setBookId(bookId => bookId + 1);
+    setBooks([...books, {...newBook, id: bookId}]); // Adiciona o livro na lista
+    setBookId(bookId => bookId + 1); // Incremente o id
   };
 
+  // Funcao para atualizar um livro na lista
   const updateBook = (updatedBook) => {
+    // Quando o id corresponde ao id do livro sendo atualizado, atualiza o livro na lista
     setBooks(books.map(book => (book.id === updatedBook.id ? updatedBook : book)));
   };
 
-  const removeBook = (index) => {
-    setBooks(books.filter(book => book.id !== index));
+  // Funcao para remover um livro da lista
+  const removeBook = (id) => {
+    // Filtra a lista somente com os livros que possuem id diferente do livro que esta sendo removido
+    setBooks(books.filter(book => book.id !== id));
   };
 
+  // Componente principal com navegacao
+  // Exibe as paginas com base nas rotas definidas no sistema
   return (
     <Router>
       <NavBar />

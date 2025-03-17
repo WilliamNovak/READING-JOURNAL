@@ -1,3 +1,4 @@
+// Objeto com livros ilustrativos inicialmente cadastrados
 const myBooks = [
     {id: 1, title: 'Livro 1', author: 'Autor 1', genre: 'Terror', date: '2020-01-10'},
     {id: 2, title: 'Livro 2', author: 'Autor 2', genre: 'Ficção', date: '2018-06-09'},

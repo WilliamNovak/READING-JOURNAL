@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BookForm = ({ addBook, updateBook, books }) => {
+    // Verifica se o id foi passado na URL por parametro e obtem seu valor
     const { id } = useParams();
+    // Utiliza useNavigate para navegar entre as paginas
+    const navigate = useNavigate();
     
+    // Inicializa objeto de um novo livro
     const newBook = {
         title: '',
         author: '',
@@ -11,15 +15,19 @@ const BookForm = ({ addBook, updateBook, books }) => {
         date: ''
     }
 
+    // Busca o livro pelo id, quando informado, para edicao
     const existingBook = books.find(book => book.id === Number(id));
+    // Define o estado do formulario utilizando o livro existente para edicao ou um novo livro
     const [book, setBook] = useState(existingBook || newBook);
 
+    // Utiliza useEffect para atualizar o estado do formulario quando estiver atualizando um livro
     useEffect(() => {
         if (existingBook) {
             setBook(existingBook);
         }
     }, [existingBook]);
 
+    // Funcao para atualizar o estado do livro ao atualizar campos do formulario
     const handleChange = (e) => {
         setBook({
             ...book,
@@ -27,19 +35,25 @@ const BookForm = ({ addBook, updateBook, books }) => {
         })
     }
 
+    // Funcao que executa ao submitar o formulario
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // previne o comportamento padrao
+
         if (id) {
+            // Atualiza o livro quando está editando
             updateBook(book);
         } else {
+            // Adiciona o novo livro quando está cadastrando
             addBook(book);
-            setBook(newBook);
         }
+        // Retorna para listagem de livros
+        navigate('/booklist');
     }
 
+    // Componente que retorna o formulario na pagina
     return (
         <div className="centerDiv">
-            <h1>Cadastrar</h1>
+            <h1>{id ? 'Editar Livro' : 'Cadastrar'}</h1>
             <form className="bookForm" onSubmit={handleSubmit}>
                 <label>Título: <input className="inputField" type="text" name="title" value={book.title} onChange={handleChange}/></label><br></br>
                 <label>Autor(a): <input className="inputField" type="text" name="author" value={book.author} onChange={handleChange}/></label><br></br>

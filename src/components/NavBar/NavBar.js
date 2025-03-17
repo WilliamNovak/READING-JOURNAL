@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Componente de navegacao entre as paginas
+// utilizando rotas
 const NavBar = () => {
     return (
         <nav>

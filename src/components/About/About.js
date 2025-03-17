@@ -1,5 +1,6 @@
 import React from "react";
 
+// Página ilustrativa com informacoes sobre o sistema
 const About = () => {
     return (
         <div>
