@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# :books: Reading Journal
+## Nome: `William Renan Novak`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### :rocket: Como executar o projeto:
 
-## Available Scripts
+1. Execute npm install para instalar as dependências do projeto:
+```
+npm install
+```
 
-In the project directory, you can run:
+2. Iniciar a execução do projeto.
+```
+npm start
+```
 
-### `npm start`
+## :house: Introdução
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este é um projeto simples de gerenciamento de livros utilizando React e React Router.
+As funcionalidades do sistema são adicionar, editar, excluir e listar os livros existentes.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :file_folder: Componentes
 
-### `npm test`
+Os componentes estão no diretório `./src/components` e eles possuem as seguintes características:
+- **Home:** Página inicial do sistema.
+- **About:** Página descritiva sobre o intuito do sistema.
+- **Navbar:** Este componente utiliza Link do React Router para mostrar as páginas disponíveis em uma barra de navegação
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **BookList:**
+  - `props`
+    - books: array com a lista de livros existentes no sistema;
+    - removeBook: função a ser chamada para realizar a exclusão de um livro do sistema;
+  - Descrição: Este componente recebe os livros existentes via props e os exibe em uma listagem para o usuário.
 
-### `npm run build`
+- **BookForm:**
+  - `props`
+    - addBook: função que adiciona uma nova instância de um livro ao sistema;
+    - updateBook: função que atualiza os dados de determinado livro existente no sistema;
+    - books: array com a lista de livros existentes no sistema;
+  - Descrição: Este componente retorna um formulário para o gerenciamento do cadastro e atualização de livros no Reading Journal.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## :computer: Tecnologias Utilizadas
+- **React** (biblioteca principal)
+- **React Router** (gerenciamento de rotas)
+- **useState e useEffect** (gerenciamento de estado e efeitos colaterais)
