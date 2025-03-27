@@ -13,7 +13,7 @@ const BookForm = ({ addBook, updateBook, books }) => {
     title: "",
     author: "",
     genre: "",
-    date: "",
+    readAt: "",
   };
 
   // Busca o livro pelo id, quando informado, para edicao
@@ -41,13 +41,13 @@ const BookForm = ({ addBook, updateBook, books }) => {
     e.preventDefault(); // previne o comportamento padrao
 
     // Verifica se todos campos foram informados
-    if (!book.title || !book.author || !book.genre || !book.date) {
+    if (!book.title || !book.author || !book.genre || !book.readAt) {
       alert("Todos os campos devem ser informados!");
       return;
     }
 
     // Verifica se a data é valida
-    const selectedDate = new Date(book.date);
+    const selectedDate = new Date(book.readAt);
     const currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
 
@@ -115,9 +115,9 @@ const BookForm = ({ addBook, updateBook, books }) => {
           />
           <TextField
             label="Lido em"
-            name="date"
+            name="readAt"
             type="date"
-            value={book.date}
+            value={book.readAt}
             onChange={handleChange}
             fullWidth
             margin="normal"

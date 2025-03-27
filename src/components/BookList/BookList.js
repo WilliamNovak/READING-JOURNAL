@@ -47,7 +47,7 @@ const BookList = ({ books, removeBook }) => {
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Lido em:{" "}
-                    {new Date(book.date).toLocaleDateString("pt-BR", {
+                    {new Date(book.readAt).toLocaleDateString("pt-BR", {
                       timeZone: "UTC",
                     })}
                   </Typography>

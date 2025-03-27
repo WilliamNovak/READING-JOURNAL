@@ -3,18 +3,37 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import BookList from "./components/BookList/BookList";
 import BookForm from "./components/BookForm/BookForm";
-import myBooks from "./assets/books";
+//import myBooks from "./assets/books";
+import axios from "axios";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./theme";
 
 export default function App() {
   // Armazena o estado da lista de livros, inializando com os livros importados
-  const [books, setBooks] = useState(myBooks);
+  const [books, setBooks] = useState([]);
   // Armazena o estado que gerencia o id dos proximos livros
-  const [bookId, setBookId] = useState(4);
+  const [bookId, setBookId] = useState(0);
+
+  useEffect(() => {
+    // Busca os livros da API quando o componente é montado
+    axios.get("http://localhost:3000/books")
+      .then((response) => {
+        setBooks(response.data);
+        // Define o próximo ID disponível com base nos dados da API
+        if (response.data.length > 0) {
+          const maxId = Math.max(...response.data.map(book => book.id));
+          setBookId(maxId + 1);
+        } else {
+          setBookId(1); // Quando não há livros, comece com o ID 1
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar livros da API:", error);
+      });
+  }, []);
 
   // Funcao para adicionar um novo livro a lista
   const addBook = (newBook) => {
