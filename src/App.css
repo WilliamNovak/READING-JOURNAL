@@ -24,13 +24,6 @@ p {
   font-size: 18px;
 }
 
-.centerDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .bookList {
   width: fit-content;
 }
@@ -42,9 +35,4 @@ p {
 
 .bookForm {
   text-align: left;
-}
-
-.inputField {
-  margin: 0.4rem 0 0.4rem 0;
-  width: 65%;
 }
