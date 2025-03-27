@@ -37,8 +37,15 @@ export default function App() {
 
   // Funcao para adicionar um novo livro a lista
   const addBook = (newBook) => {
-    setBooks([...books, {...newBook, id: bookId}]); // Adiciona o livro na lista
-    setBookId(bookId => bookId + 1); // Incremente o id
+    // Envia o livro para adicionar na API
+    axios.post("http://localhost:3000/books", newBook)
+      .then((response) => {
+        setBookId(bookId => bookId + 1); // Incrementa o id
+        setBooks([...books, {id: bookId, ...response.data}]); // Adiciona o livro na lista local
+      })
+      .catch((error) => {
+        console.error("Erro ao adicionar livro na API:", error);
+      });
   };
 
   // Funcao para atualizar um livro na lista
