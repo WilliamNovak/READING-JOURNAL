@@ -14,7 +14,7 @@ const About = () => {
           minHeight: "60vh"
         }}
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h2" fontFamily="Bungee Tint" gutterBottom>
           Sobre
         </Typography>
         <Typography variant="body1"

@@ -85,7 +85,7 @@ const BookForm = ({ addBook, updateBook, books }) => {
           borderRadius: "1.5rem"
         }}
       >
-        <Typography variant="h5" align="center" gutterBottom>
+        <Typography variant="h4" align="center" fontFamily="Bungee Tint" gutterBottom>
           {id ? "Editar Livro" : "Cadastrar"}
         </Typography>
         <form onSubmit={handleSubmit}>

@@ -15,7 +15,7 @@ const BookList = ({ books, removeBook }) => {
       justifyContent="center"
       padding="2rem"
     >
-      <Typography variant="h4" margin={3} gutterBottom>
+      <Typography variant="h4" fontFamily="Bungee Tint" margin={3} gutterBottom>
         Lista de Livros
       </Typography>
       <Box

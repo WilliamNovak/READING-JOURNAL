@@ -14,7 +14,7 @@ const Home = () => {
               minHeight: "60vh"
             }}
           >
-            <Typography variant="h2">
+            <Typography variant="h2" fontFamily="Bungee Tint">
               Diário de Leitura
             </Typography>
           </Box>
