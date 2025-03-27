@@ -7,6 +7,8 @@ import myBooks from "./assets/books";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./theme";
 
 export default function App() {
   // Armazena o estado da lista de livros, inializando com os livros importados
@@ -36,18 +38,20 @@ export default function App() {
   // Exibe as paginas com base nas rotas definidas no sistema
   return (
     <div className="App">
-      <Router>
-        <NavBar />
-        <div className="textCenter">
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path="/booklist" element={<BookList books={books} removeBook={removeBook}/>} />
-            <Route path="/bookform" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
-            <Route path="/bookform/:id" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
-          </Routes>
-        </div>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <NavBar />
+          <div className="textCenter">
+            <Routes>
+              <Route path="/" element={<Home/>} />
+              <Route path="/about" element={<About/>} />
+              <Route path="/booklist" element={<BookList books={books} removeBook={removeBook}/>} />
+              <Route path="/bookform" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
+              <Route path="/bookform/:id" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
+            </Routes>
+          </div>
+        </Router>
+      </ThemeProvider>
     </div>
   );
 }
