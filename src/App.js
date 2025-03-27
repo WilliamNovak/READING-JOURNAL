@@ -63,8 +63,17 @@ export default function App() {
 
   // Funcao para remover um livro da lista
   const removeBook = (id) => {
-    // Filtra a lista somente com os livros que possuem id diferente do livro que esta sendo removido
-    setBooks(books.filter(book => book.id !== id));
+    // Remove o livro da API
+    axios.delete(`http://localhost:3000/books/${id}`)
+      .then(() => {
+        // Filtra a lista somente com os livros que possuem id diferente do livro que esta sendo removido
+        setBooks(books.filter(book => book.id !== id));
+        // Quando o livro removido for o ultimo da lista (maior id) usa o mesmo id no proximo livro cadastrado
+        if (id === bookId - 1) { setBookId(bookId => bookId - 1); }
+      })
+      .catch((error) => {
+        console.error("Erro ao remover livro da API:", error);
+      });
   };
 
   // Componente principal com navegacao
