@@ -114,7 +114,7 @@ const BookForm = ({ addBook, updateBook, books }) => {
             margin="normal"
           />
           <TextField
-            label="Data"
+            label="Lido em"
             name="date"
             type="date"
             value={book.date}
