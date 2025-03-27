@@ -35,17 +35,19 @@ export default function App() {
   // Componente principal com navegacao
   // Exibe as paginas com base nas rotas definidas no sistema
   return (
-    <Router>
-      <NavBar />
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>} />
-          <Route path="/booklist" element={<BookList books={books} removeBook={removeBook}/>} />
-          <Route path="/bookform" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
-          <Route path="/bookform/:id" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Router>
+        <NavBar />
+        <div className="textCenter">
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/booklist" element={<BookList books={books} removeBook={removeBook}/>} />
+            <Route path="/bookform" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
+            <Route path="/bookform/:id" element={<BookForm addBook={addBook} updateBook={updateBook} books={books}/>} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   );
 }
