@@ -43,8 +43,15 @@ export default function App() {
 
   // Funcao para atualizar um livro na lista
   const updateBook = (updatedBook) => {
-    // Quando o id corresponde ao id do livro sendo atualizado, atualiza o livro na lista
-    setBooks(books.map(book => (book.id === updatedBook.id ? updatedBook : book)));
+    // Atualiza o livro na API
+    axios.put("http://localhost:3000/books/", updatedBook)
+      .then(() => {
+        // Atualiza o livro na lista local
+        setBooks(books.map(book => (book.id === updatedBook.id ? updatedBook : book)));
+      })
+      .catch((error) => {
+        console.error("Erro ao atualizar livro na API:", error);
+      });
   };
 
   // Funcao para remover um livro da lista
