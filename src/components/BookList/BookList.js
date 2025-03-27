@@ -9,7 +9,7 @@ const BookList = ({ books, removeBook }) => {
             <ul className="bookList">
                 {books.map((book, index) => (
                     <li className="bookItem" key={index}>
-                        <Link to={`/bookform/${book.id}`}>{book.title} - {book.author} - {book.genre} - {new Date(book.date).toLocaleDateString("pt-BR")}</Link>
+                        <Link to={`/bookform/${book.id}`} title="Editar">{book.title} - {book.author} - {book.genre} - {new Date(book.date).toLocaleDateString("pt-BR")}</Link>
                         <button style={{marginLeft: '10px'}} onClick={() => removeBook(book.id)}>Excluir</button>
                     </li>
                 ))}
