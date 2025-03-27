@@ -23,16 +23,3 @@ h1 {
 p {
   font-size: 18px;
 }
-
-.bookList {
-  width: fit-content;
-}
-
-.bookItem {
-  text-align: left;
-  margin: 0.5rem 0 0.5rem 0;
-}
-
-.bookForm {
-  text-align: left;
-}
