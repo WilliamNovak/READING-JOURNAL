@@ -1,12 +1,24 @@
 import React from "react";
+import { Container, Box, Typography } from "@mui/material";
 
 // Pagina Inicial do Sistema
 const Home = () => {
     return (
-        <div>
-            <h1>Página Inicial</h1>
-            <p>Bem-vindo ao Reading Journal!</p>
-        </div>
+        <Container maxWidth="md">
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "60vh"
+            }}
+          >
+            <Typography variant="h2">
+              Diário de Leitura
+            </Typography>
+          </Box>
+        </Container>
     );
 }
   
