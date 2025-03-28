@@ -35,8 +35,16 @@ const BookList = ({ books, removeBook }) => {
                   margin: "0.2rem",
                 }}
               >
-                <CardContent>
-                  <Typography variant="h6" component="div">
+                <CardContent 
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <Typography variant="h6" component="div"
+                    sx={{width: "65%"}}
+                  >
                     {book.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
