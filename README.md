@@ -1,22 +1,40 @@
 # :books: Reading Journal
 ## Nome: `William Renan Novak`
 
-### :rocket: Como executar o projeto:
-
-1. Execute npm install para instalar as dependências do projeto:
-```
-npm install
-```
-
-2. Iniciar a execução do projeto.
-```
-npm start
-```
-
 ## :house: Introdução
 
-Este é um projeto simples de gerenciamento de livros utilizando React e React Router.
-As funcionalidades do sistema são adicionar, editar, excluir e listar os livros existentes.
+Este é um projeto de gerenciamento de livros utilizando React, React Router, Axios e Material-UI.
+- O projeto faz o consumo de uma API para manutenção dos livros no sistema.
+- As funcionalidades do sistema são adicionar, editar, excluir e listar os livros existentes.
+
+### :star: Configurar API para consumo do projeto:
+
+1. Clone o repositório localizado em: https://github.com/adsPucrsOnline/DesenvolvimentoFrontend/
+
+2. Acesse o repositório clonado e execute localmente a API que será consumida pelo sistema
+    ```bash
+    cd ./DesenvolvimentoFrontend/readingJournal-api/
+    ```
+3. Execute npm install para instalar as dependências da API
+    ```bash
+    npm install
+    ```
+4. Execute localmente a API que será consumida pelo sistema
+    ```bash
+    npm start
+    ```
+
+### :rocket: Como executar o projeto:
+
+1. Retorne para o repositório do projeto e execute npm install para instalar as dependências do projeto:
+    ```bash
+    npm install
+    ```
+
+2. Iniciar a execução do projeto.
+    ```bash
+    npm start
+    ```
 
 ## :file_folder: Componentes
 
@@ -46,3 +64,5 @@ Os componentes estão no diretório `./src/components` e eles possuem as seguint
 - **React** (biblioteca principal)
 - **React Router** (gerenciamento de rotas)
 - **useState e useEffect** (gerenciamento de estado e efeitos colaterais)
+- **Axios** (biblioteca para requisições HTTP)
+- **Material-UI** (estilização e componentização)
