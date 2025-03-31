@@ -82,7 +82,8 @@ const BookForm = ({ addBook, updateBook, books }) => {
           maxWidth: "400px",
           width: "100%",
           bgcolor: "white",
-          borderRadius: "1.5rem"
+          borderRadius: "1.5rem",
+          marginTop: "1.5rem"
         }}
       >
         <Typography variant="h4" align="center" fontFamily="Bungee Tint" gutterBottom>
