@@ -19,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
     // Busca os livros da API quando o componente é montado
-    axios.get("http://localhost:3000/books")
+    axios.get("http://localhost:5000/books")
       .then((response) => {
         setBooks(response.data);
         // Define o próximo ID disponível com base nos dados da API
@@ -38,7 +38,7 @@ export default function App() {
   // Funcao para adicionar um novo livro a lista
   const addBook = (newBook) => {
     // Envia o livro para adicionar na API
-    axios.post("http://localhost:3000/books", newBook)
+    axios.post("http://localhost:5000/books", newBook)
       .then((response) => {
         setBookId(bookId => bookId + 1); // Incrementa o id
         setBooks([...books, {id: bookId, ...response.data}]); // Adiciona o livro na lista local
@@ -51,7 +51,7 @@ export default function App() {
   // Funcao para atualizar um livro na lista
   const updateBook = (updatedBook) => {
     // Atualiza o livro na API
-    axios.put("http://localhost:3000/books/", updatedBook)
+    axios.put("http://localhost:5000/books/", updatedBook)
       .then(() => {
         // Atualiza o livro na lista local
         setBooks(books.map(book => (book.id === updatedBook.id ? updatedBook : book)));
@@ -64,7 +64,7 @@ export default function App() {
   // Funcao para remover um livro da lista
   const removeBook = (id) => {
     // Remove o livro da API
-    axios.delete(`http://localhost:3000/books/${id}`)
+    axios.delete(`http://localhost:5000/books/${id}`)
       .then(() => {
         // Filtra a lista somente com os livros que possuem id diferente do livro que esta sendo removido
         setBooks(books.filter(book => book.id !== id));
