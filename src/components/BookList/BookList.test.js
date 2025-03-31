@@ -25,10 +25,10 @@ describe('BookList', () => {
     expect(screen.getByText('Livro 1')).toBeInTheDocument();
     expect(screen.getByText('Autor(a): Autor 1')).toBeInTheDocument();
     expect(screen.getByText('Gênero: Gênero 1')).toBeInTheDocument();
-    expect(screen.getByText('Lido em: 01/01/2023')).toBeInTheDocument();
+    expect(screen.getByText('Lido em: 11/06/2024')).toBeInTheDocument();
     expect(screen.getByText('Livro 2')).toBeInTheDocument();
     expect(screen.getByText('Autor(a): Autor 2')).toBeInTheDocument();
     expect(screen.getByText('Gênero: Gênero 2')).toBeInTheDocument();
-    expect(screen.getByText('Lido em: 01/02/2023')).toBeInTheDocument();
+    expect(screen.getByText('Lido em: 10/02/2021')).toBeInTheDocument();
   });
 });
